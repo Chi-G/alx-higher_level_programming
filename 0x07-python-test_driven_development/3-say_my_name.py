@@ -62,5 +62,3 @@ At least one name must be provided.
     Traceback (most recent call last):
     TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 
-
-0x07-python-test_driven_development/tests/4-print_square.txt
