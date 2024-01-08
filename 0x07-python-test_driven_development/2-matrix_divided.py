@@ -1,12 +1,13 @@
-the module defines a matrix division function ``matrix_divided(matrix, div)``
+This module defines a matrix division function ``matrix_divided(matrix, div)``.
 
 Usage
 =====
 
-``matrix_divided(...)`` this returns a new matrix that is a copy of the parameter
-``matrix`` with all elements divided by ``div``
+``matrix_divided(...)`` returns a new matrix that is a copy of the parameter
+``matrix`` with all elements divided by ``div``.
 
 ::
+
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
     >>> matrix = [
     ...     [3, 6, 9],
@@ -15,7 +16,7 @@ Usage
     >>> print(matrix_divided(matrix, 3))
     [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
 
-remember that quotients are rounded to a maximum of two decimal places
+Note that quotients are rounded to a maximum of two decimal places.
 
 ::
 
