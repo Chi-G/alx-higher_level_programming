@@ -6,17 +6,23 @@ const movieId = process.argv[2];
 
 const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
 
-//  the 'request' module to perform an HTTP GET request to the Star Wars API URL.
-request(apiUrl, function (error, response, body) {
+// Use the 'request' module to perform an HTTP GET request to the Star Wars API URL.
+request({
+  url: apiUrl,
+  rejectUnauthorized: false
+}, function (error, response, body) {
   // Check if there was no error during the HTTP request
   if (!error && response.statusCode === 200) {
-    // Parse the JSON response bod
+    // Parse the JSON response body
     const movieData = JSON.parse(body);
     // create an array of promises that fetch the data for each individual character.
     const characterPromises = movieData.characters.map((characterUrl) => {
       return new Promise((resolve, reject) => {
         // Use another 'request' to fetch the data for the individual character.
-        request(characterUrl, function (charError, charResponse, charBody) {
+        request({
+          url: characterUrl,
+          rejectUnauthorized: false // Bypass SSL certificate verification
+        }, function (charError, charResponse, charBody) {
           // Check if there was no error during the HTTP request
           if (!charError && charResponse.statusCode === 200) {
             // Parse the JSON response body
